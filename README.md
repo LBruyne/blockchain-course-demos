@@ -4,7 +4,7 @@ This is a repository for teaching propose when I'm the TA in ZJU Blockchain cour
 
 It contains some demos for learning how to develop Solidity contracts in Ethereum and how to build a DApp on top of the Ethereum.
 
-## 🍎 Demos
+## ✨ Demos
 
 The demos are as following:
 
@@ -14,9 +14,9 @@ About how to use the toolchains to develop Solidity contracts and how to use fro
 
 Also contains contents about Metamask APIs.
 
-### demo-Token-application [WIP]
+### demo-lottery-application [WIP]
 
-A simple DApp on top of a Token contracts.
+A simple DApp on top of a Lottery contracts.
 
 ## 🔧 Helpful Links
 
