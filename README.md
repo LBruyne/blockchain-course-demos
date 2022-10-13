@@ -14,9 +14,13 @@ About how to use the toolchains to develop Solidity contracts and how to use fro
 
 Also contains contents about Metamask APIs.
 
-### demo-lottery-application [WIP]
+### demo-lottery-application
 
 A simple DApp on top of a Lottery contracts.
+
+### demo-on-course
+
+Some simple contracts on class teaching.
 
 ## 🔧 Helpful Links
 
