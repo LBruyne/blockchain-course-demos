@@ -40,9 +40,9 @@ const Header = () => {
             // 如果当前小狐狸不在本地链上，切换Metamask到本地测试链
             if (ethereum.chainId !== GanacheTestChainId) {
                 const chain = {
-                    chainId: GanacheTestChainId, // Chain-ID
-                    chainName: GanacheTestChainName, // Chain-Name
-                    rpcUrls: [GanacheTestChainRpcUrl], // RPC-URL
+                    chainId: GanacheTestChainId, // TODO Chain-ID
+                    chainName: GanacheTestChainName, // TODO Chain-Name
+                    rpcUrls: [GanacheTestChainRpcUrl], // TODO RPC-URL
                 };
 
                 try {

@@ -42,13 +42,19 @@ const DemoPage = () => {
                 return
             }
 
+            console.log(accounts[0])
             const result = await calculatorContract.methods.getUserAddressHash().send({
                 from: accounts[0]
             })
+            console.log(result)
             // 在这个send方法调用后，合约内部对交易进行处理，并打包上链，结果并不能马上返回。
             // 返回的结果是一个交易的Hash。
             // 所以，在需要获取合约数据处理的结果时，我们需要在合约中使用event-emit模式，通过事件获取函数处理的结果。
-            console.log(result)
+            if (result.events && result.events.UserAddressHash) {
+                setResult(result.events.UserAddressHash.returnValues.hash)
+            } else {
+                console.log("No UserAddressHash event found.");
+            }
         } else {
             alert('Contract not exists.')
         }

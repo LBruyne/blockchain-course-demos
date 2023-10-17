@@ -37,7 +37,6 @@ describe("Calculator", function () {
       expect(await calculator.multiply(4, 5)).to.equal(20);
     });
 
-
     it("get user address hash", async function () {
       const { calculator, owner } = await loadFixture(deployContractFixture);
       const userAddress = owner.address;

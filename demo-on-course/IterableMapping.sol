@@ -3,8 +3,9 @@ pragma solidity ^0.8.0;
 
 type Iterator is uint;
 
-    struct IndexValue { uint keyIndex; uint value; }
-    struct KeyFlag { uint key; bool deleted; }
+    struct IndexValue {uint keyIndex; uint value;}
+
+    struct KeyFlag {uint key; bool deleted;}
 
     struct itmap {
         mapping(uint => IndexValue) data;
