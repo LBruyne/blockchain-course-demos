@@ -100,10 +100,11 @@ const LotteryPage = () => {
 
         if (lotteryContract && myERC20Contract) {
             try {
+                // 当前用户将一些资金授予给lottery合约
                 await myERC20Contract.methods.approve(lotteryContract.options.address, playAmount).send({
                     from: account
                 })
-
+                // 当前用户调用投注操作
                 await lotteryContract.methods.play().send({
                     from: account
                 })
@@ -131,7 +132,6 @@ const LotteryPage = () => {
                 await lotteryContract.methods.draw().send({
                     from: account
                 })
-
                 alert('You have draw the game.')
             } catch (error: any) {
                 alert(error.message)
@@ -150,13 +150,11 @@ const LotteryPage = () => {
             return
         }
 
-
         if (lotteryContract && myERC20Contract) {
             try {
                 await lotteryContract.methods.refund().send({
                     from: account
                 })
-
                 alert('You have refunded tokens.')
             } catch (error: any) {
                 alert(error.message)

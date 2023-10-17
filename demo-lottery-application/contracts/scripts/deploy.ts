@@ -6,7 +6,7 @@ async function main() {
   await lottery.deployed();
   console.log(`lottery contract has been deployed successfully in ${lottery.address}`)
 
-  const erc20 = await lottery.myERC20()
+  const erc20 = await lottery.myERC20();
   console.log(`erc20 contract has been deployed successfully in ${erc20}`)
 }
 
