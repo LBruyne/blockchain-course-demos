@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 // Uncomment this line to use console.log
-// import "hardhat/console.sol";
+import "hardhat/console.sol";
 
 contract Calculator {
 
@@ -25,7 +25,7 @@ contract Calculator {
     }
 
     function getUserAddressHash() external returns (bytes32) {
-        // console.log(msg.sender);
+//        console.log(msg.sender);
         bytes32 hash = keccak256(abi.encodePacked(msg.sender));
         emit UserAddressHash(hash);
         return hash;

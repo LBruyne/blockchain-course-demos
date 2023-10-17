@@ -2,14 +2,14 @@ import {HardhatUserConfig} from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
 const config: HardhatUserConfig = {
-    // Solidity compiler version
+    // TODO Solidity compiler version
     solidity: "0.8.9",
     networks: {
         hardhat: {},
         ganache: {
-            // Change the url according to your ganache configuration
+            // TODO Change the url according to your ganache configuration
             url: 'http://localhost:8545',
-            // Change these accounts private keys according to your ganache configuration.
+            // TODO Change these accounts private keys according to your ganache configuration.
             accounts: [
                 '0x426a687e403df584ffa0123578be23aa22df7630be3cc836e1b27233a309f67f',
                 '0xfb6ac705c6736aff3772c973534b100317822da23fadbd3601b9a5f897888721',

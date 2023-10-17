@@ -40,8 +40,15 @@ describe("Calculator", function () {
 
     it("get user address hash", async function () {
       const { calculator, owner } = await loadFixture(deployContractFixture);
-      // keccak256hash(f39fd6e51aad88f6f4ce6ab8827279cfffb92266)
-      expect(await calculator.connect(owner).getUserAddressHash()).to.equal('0xe9707d0e6171f728f7473c24cc0432a9b07eaaf1efed6a137a4a8c12c79552d9');
+      const userAddress = owner.address;
+      console.log("sender address:", userAddress);
+      const expectedHash = ethers.utils.solidityKeccak256(["address"], [userAddress])
+      // test event
+      await expect(calculator.connect(owner).getUserAddressHash())
+          .to.emit(calculator, 'UserAddressHash')
+          .withArgs(expectedHash);
+      // test result
+      expect(await calculator.connect(owner).callStatic.getUserAddressHash()).to.equal(expectedHash);
     });
   });
 });
