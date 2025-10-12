@@ -34,27 +34,27 @@ contract Lottery {
     // 投注
     function play() public {
         // 委托转账操作
-        myERC20.transferFrom(msg.sender, address(this), PLAY_AMOUNT);
-        // 把参与者加入到彩票池中
-        players.push(msg.sender);
-
+        bool ok = myERC20.transferFrom(msg.sender, address(this), PLAY_AMOUNT);
+        require(ok, "TransferFrom failed");        
+        players.push(msg.sender); // 把参与者加入到彩票池中
         totalAmount += PLAY_AMOUNT;
     }
 
     // 从参与玩家中随机抽取一个玩家，这里使用哈希算法来随机：Hash(当前时间，区块的挖矿难度，彩民数量)
     function draw() onlyManager public {
         require(players.length != 0, "No player involved in the game");
-        bytes32 hash = keccak256(abi.encodePacked(block.timestamp, block.difficulty, players.length));
-        uint256 hashValue = uint256(hash);
-
-        // 随机找到一个玩家
-        uint256 index = hashValue % players.length;
+        uint256 rand = uint256(keccak256(
+                abi.encodePacked(
+                    block.timestamp, address(this), players.length
+                )
+            ));
+        uint256 index = rand % players.length;
         winner = players[index];
 
         // 将本合约的所有Token转让给赢家
-        myERC20.transfer(winner, myERC20.balanceOf(address(this)));
-        // 清理彩民池
-        delete players;
+        bool ok = myERC20.transfer(winner, myERC20.balanceOf(address(this)));
+        require(ok, "Transfer failed");        
+        delete players; // 清理彩民池
         totalAmount = 0;
     }
 

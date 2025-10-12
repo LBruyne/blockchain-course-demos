@@ -1,0 +1,8 @@
+/my-contracts
+
+**/cache
+**/artifacts
+**/typechain
+**/node_modules
+**/dist
+**/typechain-types
