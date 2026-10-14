@@ -1,8 +1,16 @@
 /my-contracts
 
+# macOS metadata
+.DS_Store
+.vscode/
+
 **/cache
 **/artifacts
 **/typechain
 **/node_modules
 **/dist
+**/build
 **/typechain-types
+*.tsbuildinfo
+# Claude Code conversation archive (added automatically)
+.claude-code-conversation/

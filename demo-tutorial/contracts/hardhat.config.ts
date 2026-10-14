@@ -11,7 +11,7 @@ const config: HardhatUserConfig = {
             url: 'http://localhost:8545',
             // TODO Change these accounts private keys according to your ganache configuration.
             accounts: [
-                '0xf3fd6946cb91eb6e948fb34f261620850eb4d2d12a60a8dab7264a15e252621f',
+                '0x68c927bb6afd00ace3c6c37a8544a1d88525b25b1cfffa40fd61edd6c5d6ecf3',
             ]
         },
     },
